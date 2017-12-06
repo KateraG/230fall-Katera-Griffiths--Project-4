@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 4 Index</title>
+    <link href="styles/index-style.css" type="text/css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+
+<div class="wrap">
+    <div class="container">
+            <div id="slider-nav" class="nav">
+                    <div class="item-container">
+                        <div id="nav-1" class="nav-item">
+                            <a href="page1.html"></a>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div id="nav-2" class="nav-item">
+                            <a href="page2.html"></a>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <div id="nav-3" class="nav-item">
+                            <a href="page3.html"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-link">
+                        <a href="index.html">Home</a>
+                    </div>
+                <div class="doc-link">
+                    <a href="doc.html">Documentation</a>
+                </div>
+        
+        <div id="title-caption">
+            <h4>IGME 230 Project 4</h4>
+            <h4>Interactive Webpage</h4>
+        </div>
+
+        <h1 class="title">Discover</h1>
+        <h3 class="title">Hidden Words</h3>
+
+    </div>
+
+</div>
+
+<script>
+    //Background Parallax
+    var lFollowX = 0,
+        lFollowY = 0,
+        x = 0,
+        y = 0,
+        friction = 1 / 30;
+
+    function moveBackground() {
+        x += (lFollowX - x) * friction;
+        y += (lFollowY - y) * friction;
+
+        translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+
+        $('.container').css({
+            '-webit-transform': translate,
+            '-moz-transform': translate,
+            'transform': translate
+        });
+
+        window.requestAnimationFrame(moveBackground);
+    }
+
+    $(window).on('mousemove click', function (e) {
+
+        var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
+        var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
+        lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+        lFollowY = (10 * lMouseY) / 100;
+
+    });
+
+    moveBackground();
+
+</script>
+
+<!-- Referenced: https://codepen.io/vajkri/pen/grgQmb -->
+
+</html>

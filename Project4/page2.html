@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Project 4 Index</title>
+    <link href="styles/page2-style.css" type="text/css" rel="stylesheet" media="screen">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="library/jquery.parallax.js"></script>
+    <script src="library/jquery.event.frame.js"></script>
+
+</head>
+<main>
+    <div class="dim"></div>
+    <div class="wrap">
+        <div class="container">
+
+            <div id="slider-nav" class="nav">
+                <div class="item-container">
+                    <div id="nav-1" class="nav-item">
+                        <a href="page1.html"></a>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <div id="nav-2" class="nav-item">
+                        <a href="page2.html"></a>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <div id="nav-3" class="nav-item">
+                        <a href="page3.html"></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="home-link">
+                    <a href="index.html">Home</a>
+                </div>
+                <div class="doc-link">
+                    <a href="doc.html">Documentation</a>
+                </div>
+            <div id="outer-space">
+                <div id="word-space">
+                    <h2 id="the-word">Aranyhíd</h2>
+                </div>
+            </div>
+
+            <div id="instructions">
+
+                <h2>Hover around until the targets line up perfectly.</h2>
+
+            </div>
+
+            <div class="text-container">
+                <div class="textDefinition">
+                    <h2>Aranyhíd (n)</h2>
+                    <p id="prounouciation"></p>
+                    <p id="definition"> The reflection of the sun as it shines on the water.
+                    </p>
+                    <p id="origin"> Origin: Hungary</p>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+    //Background Parallax
+    var lFollowX = 0,
+        lFollowY = 0,
+        x = 0,
+        y = 0,
+        friction = 1 / 30;
+
+    function moveBackground() {
+        x += (lFollowX - x) * friction;
+        y += (lFollowY - y) * friction;
+
+        translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+
+        $('.container').css({
+            '-webit-transform': translate,
+            '-moz-transform': translate,
+            'transform': translate
+        });
+
+        window.requestAnimationFrame(moveBackground);
+    }
+
+    $(window).on('mousemove click', function (e) {
+
+        var lMouseX = Math.max(-100, Math.min(100, $(window).width() / 2 - e.clientX));
+        var lMouseY = Math.max(-100, Math.min(100, $(window).height() / 2 - e.clientY));
+        lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+        lFollowY = (10 * lMouseY) / 100;
+
+    });
+
+    moveBackground();
+
+
+    // Hover over to reaveal Hidden Word
+
+    $(document).ready(function () {
+        $(".text-container").hide();
+        $(".dim").hide();
+
+        // Hover over div to reveal it
+        $("#outer-space").hover(function () {
+            $("#word-space").fadeIn();
+        },
+            function () {
+                $("#word-space").fadeOut();
+            });
+
+        // Click on div to show the definition
+        $("#word-space").click(function () {
+            $(".text-container").fadeIn("slow");
+            $(".dim").fadeIn("slow");
+        });
+        $(".dim").click(function () {
+            $(".dim").hide();
+            $(".text-container").fadeOut();
+        });
+
+
+    });
+
+</script>
+
+<!-- Referenced: https://codepen.io/vajkri/pen/grgQmb -->
+
+</html>
