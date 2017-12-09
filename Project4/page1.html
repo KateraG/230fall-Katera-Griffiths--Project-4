@@ -10,23 +10,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="library/jquery.parallax.js"></script>
     <script src="library/jquery.event.frame.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
 </head>
 
 <div class="dim"></div>
 <div class="wrap">
     <div class="container">
-        <!--
-        <svg class="circle" height="700" width="2000">
-            <circle cx="1500" cy="400" r="250" stroke="white" stroke-width="1" fill="none" />
-        </svg>
-        -->
 
-        <div id="parallax">
-            <div id="target1" class="parallax-layer"></div>
-            <div id="target2" class="parallax-layer"></div>
-            <div id="target3" class="parallax-layer"></div>
-            <div id="target4" class="parallax-layer"></div>
-        </div>
+            <!-- SVG -->
+            <div class="position-svg"  data-parallax-intensity="3">
+                    <svg height="1000" width="1000">
+                        <circle class="parallax-layer" cx="650" cy="240" r="90" stroke="white" stroke-width="5" fill = "none" stroke-dasharray="8,8" />
+                    </svg>
+            </div> 
+            <div class="position-svg" data-parallax-intensity="2.3">
+                    <svg height="1000" width="1000">
+                            <circle  class="parallax-layer" cx="650" cy="240" r="125" stroke="pink" stroke-width="10" fill = "none"/> 
+                    </svg>
+            </div> 
+                    
+            <div class="position-svg"  data-parallax-intensity="2">
+                    <svg height="1000" width="1000">
+                            <circle  class="parallax-layer" cx="650" cy="240" r="180" stroke="white" stroke-width="7" fill = "none"/> 
+                    </svg>
+            </div> 
+               
 
         <div id="outer-space">
             <div id="word-space">
@@ -60,7 +68,7 @@
 
         <div id="instructions">
 
-            <h2>Hover around until the targets line up perfectly.</h2>
+            <h2>Hover around until the targets line up.</h2>
 
         </div>
         <div class="text-container">
@@ -83,8 +91,6 @@
 
 
 <script>
-    //Navigation toggle
-
 
     //Background Parallax
     var lFollowX = 0,
@@ -150,20 +156,53 @@
     // Mouse Parallax
 
     $(document).ready(function () {
-        if (jQuery('#parallax').length != 0) {
-            if (jQuery(window).width() > 1000) {
-
-                jQuery('#parallax .parallax-layer').parallax({ xparallax: '450px', yparallax: '150px' }, { xparallax: '300px', yparallax: '150px' }, { xparallax: '650px', yparallax: '150px' }, { xparallax: '300px', yparallax: '150px' }); (
-                    { mouseport: jQuery('#parallax') }
-
-                );
-
-                $(window).load(function () {
-                    jQuery('#parallax .parallax-layer').css('display', 'block');
-                });
-
+        var $parallaxItem = $('.position-svg');
+            var $parallaxIntensity;
+            
+            var mousePosX;
+            var mousePosY;
+            var parallaxItemPosX;
+            var parallaxItemPosY;
+            
+            var $windowWidth;
+            var $windowHeight;  
+            var $parallaxItemWidth;
+            var $parallaxItemHeight;
+            
+            //
+            
+            $(window).mousemove(function(event) {
+              centerMousePosition(); // make center of window 0,0.
+            
+              $parallaxItem.each(function(index) {
+                $parallaxIntensity = $(this).data("parallax-intensity"); // higher intensity = less distance
+            
+               
+                TweenMax.to($parallaxItem.eq(index), 0.2, {
+                  x:-mousePosX/$parallaxIntensity, 
+                  y:-mousePosY/$parallaxIntensity,
+                  marginTop:-$parallaxItemWidth/2,
+                  marginLeft:-$parallaxItemHeight/2,
+                  ease:Power2.easeOut
+                }, 0);
+            
+              });
+            });
+            
+      
+            function centerMousePosition() {
+              $windowWidth = $(window).width();
+              $windowHeight = $(window).height();
+              $parallaxItemWidth = $parallaxItem.width();
+              $parallaxItemHeight = $parallaxItem.height();
+            
+              mousePosX = event.clientX - $windowWidth/2;
+              mousePosY = event.clientY - $windowHeight/2;
+              console.log('mousePosX:', mousePosX, 'mousePosY:', -mousePosY)
+            
+           
             }
-        }
+            
     });
 </script>
 

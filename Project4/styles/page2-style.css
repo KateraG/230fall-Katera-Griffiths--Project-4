@@ -15,7 +15,12 @@
     letter-spacing: 1.3px;
    
   }
-
+  .position-svg {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+  }
   #instructions{
     position: absolute;
     z-index: 50;
@@ -215,8 +220,8 @@
     position: absolute;
     height: 175px;
     width: 175px;
-    top: 60%;
-    left: 55%;
+    top: 40%;
+    left: 60%;
     z-index: 10;
   }
   #word-space{

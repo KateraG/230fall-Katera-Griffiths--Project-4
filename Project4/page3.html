@@ -10,12 +10,30 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="library/jquery.parallax.js"></script>
     <script src="library/jquery.event.frame.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    
 </head>
 <main>
     <div class="dim"></div>
     <div class="wrap">
         <div class="container">
-
+ <!-- SVG -->
+ <div class="position-svg" data-parallax-intensity="4">
+        <svg height="1000" width="1000">
+            <circle class="parallax-layer" cx="650" cy="620" r="90" stroke="white" stroke-width="5" fill = "none" stroke-dasharray="8,8"/>
+        </svg>
+</div> 
+<div class="position-svg" data-parallax-intensity="2.3">
+        <svg height="1000" width="1000">
+                <circle class="parallax-layer" cx="650" cy="620" r="125" stroke="lightblue" stroke-width="10" fill = "none"/> 
+        </svg>
+</div> 
+        
+<div class="position-svg" data-parallax-intensity="2">
+        <svg height="1000" width="1000">
+                <circle class="parallax-layer" cx="650" cy="620" r="180" stroke="white" stroke-width="7" fill = "none"/> 
+        </svg>
+</div> 
             <div id="slider-nav" class="nav">
                 <div class="item-container">
                     <div id="nav-1" class="nav-item">
@@ -48,7 +66,7 @@
             </div>
             <div id="instructions">
 
-                <h2>Hover around until the targets line up perfectly.</h2>
+                <h2>Hover around until the targets line up.</h2>
 
             </div>
 
@@ -133,6 +151,57 @@
 
 
     });
+
+    $(document).ready(function () {
+        let $parallaxItem = $('.position-svg');
+        let $parallaxIntensity;
+        
+        let mousePosX;
+        let mousePosY;
+        let parallaxItemPosX;
+        let parallaxItemPosY;
+        
+        let $windowWidth;
+        let $windowHeight;  
+        let $parallaxItemWidth;
+        let $parallaxItemHeight;
+
+        
+        //
+        
+        $(window).mousemove(function(event) {
+          centerMousePosition(); 
+        
+          $parallaxItem.each(function(index) {
+            $parallaxIntensity = $(this).data("parallax-intensity"); 
+        
+           
+            TweenMax.to($parallaxItem.eq(index), 0.2, {
+              x:-mousePosX/$parallaxIntensity, 
+              y:-mousePosY/$parallaxIntensity,
+              marginTop:-$parallaxItemWidth/2,
+              marginLeft:-$parallaxItemHeight/2,
+              ease:Power2.easeOut
+            }, 0);
+        
+          });
+        });
+        
+  
+        function centerMousePosition() {
+          $windowWidth = $(window).width();
+          $windowHeight = $(window).height();
+          $parallaxItemWidth = $parallaxItem.width();
+          $parallaxItemHeight = $parallaxItem.height();
+        
+          mousePosX = event.clientX - $windowWidth/2;
+          mousePosY = event.clientY - $windowHeight/2;
+          console.log('mousePosX:', mousePosX, 'mousePosY:', -mousePosY)
+        
+       
+        }
+        
+});
 
 </script>
 

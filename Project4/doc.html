@@ -6,44 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 4 Index</title>
-    <link href="styles/index-style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="styles/doc-style.css" type="text/css" rel="stylesheet" media="screen,projection">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
-
-
-            <div class="wrap">
-                <div class="container">
-
-                    <div id="slider-nav" class="nav">
-                        <ul>
-                            
-                            <li class="nav-item">
-                                <a href="page1.html">Page 1</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="page2.html">Page 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="page3.html">Page 3</a>
-                            </li>
-                            <li class="nav-item">
-                                    <a href="doc.html">Documentation</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div id="title-caption">
-                        <h4>IGME 230 Project 4</h4>
-                        <h4>Interactive Webpage</h4>
-                    </div>
-
-                  
+<div class="wrap">
+    <div class="container">
+        <!-- Navigation -->
+        <div id="slider-nav" class="nav">
+            <div class="item-container">
+                <div id="nav-1" class="nav-item">
+                    <a href="page1.html"></a>
                 </div>
-
             </div>
-<!-- Background Movement -->
+            <div class="item-container">
+                <div id="nav-2" class="nav-item">
+                    <a href="page2.html"></a>
+                </div>
+            </div>
+            <div class="item-container">
+                <div id="nav-3" class="nav-item">
+                    <a href="page3.html"></a>
+                </div>
+            </div>
+        </div>
+        <div class="home-link">
+            <a href="index.html">Home</a>
+        </div>
+
+        <div class="info-box">
+            <h2 id="blockHeading">Documentation</h2>
+            <p class="para1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus
+                diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+            <p class="para1">Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas
+                mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis
+                vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum</p>
+        </div>
+
+    </div>
+
+</div>
+
 <script>
+    // Background Movement 
     var lFollowX = 0,
         lFollowY = 0,
         x = 0,
@@ -76,9 +81,12 @@
 
     moveBackground();
 
- 
+
 </script>
 
-<!-- Referenced: https://codepen.io/vajkri/pen/grgQmb -->
+<!-- Referenced: https://codepen.io/vajkri/pen/grgQmb 
+                    https://codepen.io/anon/pen/XzLZwQ
+
+-->
 
 </html>
