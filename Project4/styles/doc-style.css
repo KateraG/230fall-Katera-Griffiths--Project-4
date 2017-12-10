@@ -65,7 +65,7 @@
   }
   
   .nav{
-    top: 78%;
+    top: 80%;
     left: 44%;
     margin:0;
     padding: 0;
@@ -82,37 +82,67 @@
   }
   
   
-  #blockHeading{
+  h2{
     text-align: center;
   }
-  .info-box{
- 
+  .docInfo{
     padding: 25px;
     position: absolute;
     background: rgba(11, 16, 39, 0.596);
     color: white;
     letter-spacing: 2px;
-    width: 50%;
+    width: 30%;
     height: 55%;
     top: 20%;
-    left: 25%;
+    left: 15%;
+    animation: fadeIn 1s ease-out;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  }
+  .refInfo{
+     padding: 25px;
+     position: absolute;
+     background: rgba(11, 16, 39, 0.596);
+     color: white;
+     letter-spacing: 2px;
+     width: 30%;
+     height: 55%;
+     top: 20%;
+     left:55%;
+     animation: fadeIn 1s ease-out;
+     -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   }
 
-  .doc-link a{
-    position: absolute;
-    margin:0;
-    padding: 0;
-    top: 80%;
-    left: 10%;
-    text-decoration: none;
-    color: white;
+  ul{
+  
+    list-style-type: none;
+    
   }
+  ul a{
+    color: white;
+    text-decoration: none;
+    -webkit-transition: color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
+  }
+
+  ul a:hover{
+    color: rgb(155, 218, 255);
+    -webkit-transition: color 0.5s ease-in-out;
+    transition: color 0.5s ease-in-out;
+  }
+  .innerContainer{
+     display: flex;
+     flex-flow: row;
+     
+     }
+
   .home-link a{
     position: absolute;
     margin:0;
     padding: 0;
-    top: 25%;
-    left: 80%;
+    top: 10%;
+    left: 48%;
     text-decoration: none;
     color: white;
     font-weight: bolder;
