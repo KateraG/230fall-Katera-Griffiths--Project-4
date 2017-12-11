@@ -185,9 +185,8 @@
     left: 35%;
     padding: 20px;
     background: rgba(22, 11, 29, 0.72);
-    background-blend-mode: multiply;
     border-radius: 50%;
-    z-index: 100 ;
+    z-index: 100;
     display: none;
   
   }
