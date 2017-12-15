@@ -18,6 +18,7 @@
   .position-svg {
     top: 50%;
     left: 50%;
+    -webkit-transform:  translate(-50%,-50%);
     transform: translate(-50%,-50%);
     position: absolute;
   }
@@ -29,6 +30,7 @@
     font-size: 14px;
     color: white;
     width: 20%;
+    -webkit-animation: fadeInUp  1s ease-out;
     animation: fadeInUp 1s ease-out;
   }
   #nav-1{
@@ -38,12 +40,15 @@
     background-size: cover;
     width: 40px;
     height: 40px;
+    -webkit-transition: transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   
   #nav-1:hover{
-      transform: translateY(-10px);
-      transition: transform 0.5s ease-in-out;
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+    -webkit-transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out;
   }
   
   #nav-2{
@@ -53,10 +58,13 @@
     background-size: cover;
     width: 40px;
     height: 40px;
+    -webkit-transition: transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   #nav-2:hover{
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
+    -webkit-transition: transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   #nav-3{
@@ -66,10 +74,13 @@
     background-size: cover;
     width: 40px;
     height: 40px;
+    -webkit-transition: transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   #nav-3:hover{
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
+    -webkit-transition: transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   .nav-item a{
@@ -102,7 +113,9 @@
     opacity: 1;
     cursor: pointer;
     text-decoration: none;
+    -webkit-animation: fadeIn 1s ease-out;
     animation: fadeIn 1s ease-out;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transition: opacity 1s ease-out;
   }
   
@@ -116,13 +129,17 @@
     text-decoration: none;
     color: white;
     font-weight: bolder;
+    -webkit-animation:fadeInUp 1s ease-out;
     animation: fadeInUp 1s ease-out;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
    
   }
   .doc-link a:hover{
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
     opacity: 0.7;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   }
   .home-link a{
@@ -134,12 +151,16 @@
     text-decoration: none;
     color: white;
     font-weight: bolder;
+    -webkit-animation:fadeInUp 1s ease-out;
     animation: fadeInUp 1s ease-out;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   }
   .home-link a:hover{
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
     opacity: 0.7;
+    -webkit-transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
   }
   h3{
@@ -152,6 +173,7 @@
     font-size: 25px;
     text-align: center;
     font-weight: lighter;
+    -webkit-transform: translate3d(-50%, -50%, 0);
     transform: translate3d(-50%, -50%, 0);
   }
 
@@ -168,6 +190,8 @@
     height: 100%;
     position: relative;
     overflow: hidden;
+    -webkit-animation: fadeIn 0.7s ease-out;
+    animation: fadeIn 0.7s ease-out;
   }
   .wrap, .container {
     width: 100%;
@@ -177,6 +201,7 @@
     left: 0;
     background: url("../images/Aranyhid02.jpg") no-repeat center center;
     background-size: cover;
+    -webkit-transform:scale(1);
     transform: scale(1);
   }
   
@@ -269,11 +294,13 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
 
   100% {
     opacity: 1;
+    -webkit-transform:none;
     transform: none;
   }
 }
@@ -281,11 +308,13 @@
 @keyframes fadeInRight {
   0% {
     opacity: 0;
+    -webkit-transform:translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 
   100% {
     opacity: 1;
+    -webkit-transform:none;
     transform: none;
   }
 }

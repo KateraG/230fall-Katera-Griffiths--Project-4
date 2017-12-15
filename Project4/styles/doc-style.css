@@ -23,11 +23,14 @@
     background-size: cover;
     width: 40px;
     height: 40px;
+    -webkit-transition:transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   
   #nav-1:hover{
+    -webkit-transform: translateY(-10px);
       transform: translateY(-10px);
+      -webkit-transition:transform 0.5s ease-in-out;
       transition: transform 0.5s ease-in-out;
   }
   
@@ -38,10 +41,13 @@
     background-size: cover;
     width: 40px;
     height: 40px;
+    -webkit-transition:transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   #nav-2:hover{
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
+    -webkit-transition:transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   #nav-3{
@@ -51,10 +57,13 @@
     background-size: cover;
     width: 40px;
     height: 40px;
+    -webkit-transition:transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   #nav-3:hover{
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
+    -webkit-transition:transform 0.5s ease-in-out;
     transition: transform 0.5s ease-in-out;
   }
   .nav-item a{
@@ -186,6 +195,7 @@
   
   .title{
     animation-fill-mode: both;
+    -webkit-animation: fadeIn 2s ease-out;
     animation: fadeIn 2s ease-out;
   }
 
@@ -197,12 +207,15 @@
     font-size: 15px;
     font-weight: lighter;
     animation-fill-mode: both;
+    -webkit-animation: fadeInUp 1s ease-out;
     animation: fadeInUp 1s ease-out;
   }
   .wrap {
     height: 100%;
     position: relative;
     overflow: hidden;
+    -webkit-animation: fadeIn 0.7s ease-out;
+    animation: fadeIn 0.7s ease-out;
   }
   .wrap, .container {
     width: 100%;
@@ -212,7 +225,9 @@
     left: 0;
     background: url("../images/nubiavagant01.jpg") no-repeat center center;
     background-size: cover;
+    -webkit-transform:scale(1);
     transform: scale(1);
+    
   }
 
 
@@ -234,11 +249,13 @@
 @keyframes fadeInUp {
   0% {
     opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
   }
 
   100% {
     opacity: 1;
+    -webkit-transform: none;
     transform: none;
   }
 }
@@ -246,11 +263,13 @@
 @keyframes fadeInRight {
   0% {
     opacity: 0;
+    -webkit-transform:translate3d(100%, 0, 0);
     transform: translate3d(100%, 0, 0);
   }
 
   100% {
     opacity: 1;
+    -webkit-transform: none;
     transform: none;
   }
   

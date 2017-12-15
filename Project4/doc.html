@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 4 Documentation</title>
-    <link href="styles/doc-style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="styles/doc-style.css" type="text/css" rel="stylesheet" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+    <script src="library/jquery.smoothState.js"></script>
 </head>
 <div class="wrap">
     <div class="container">
@@ -94,6 +94,25 @@
 
     moveBackground();
 
+    // Transition
+    ;(function ($) {
+  'use strict';
+  var content  = $('#main').smoothState({
+        // onStart runs as soon as link has been activated
+        onStart : {
+          
+          // Set the duration of our animation
+          duration: 250,
+          
+          // Alterations to the page
+          render: function () {
+
+            // Quickly toggles a class and restarts css animations
+            content.toggleAnimationClass('is-exiting');
+          }
+        }
+      }).data('smoothState'); // makes public methods available
+})(jQuery);
 
 </script>
 
